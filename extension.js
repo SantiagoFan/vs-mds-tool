@@ -1,34 +1,42 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
+//模块“vscode”包含VS代码扩展API
+//导入模块并使用下面代码中的别名vscode引用它
 const vscode = require('vscode');
-
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
-
 /**
+ * 当您的扩展被激活时，将调用此方法
+ * 您的扩展在第一次执行命令时即被激活
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "mds-tool" is now active!');
+	//当您的扩展被激活时，这行代码将只执行一次
+	console.log('恭喜，您的扩展 "mds-tool" 现在已被激活');
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('mds-tool.helloWorld', function () {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
+	//该命令已在package.json文件中定义
+	//现在用registerCommand提供命令的实现
+	//commandId参数必须与package.json中的命令字段匹配
+	context.subscriptions.push(vscode.commands.registerCommand('mds-tool.helloWorld', function () {
+		// 每次执行命令时，您在此处放置的代码都将被执行
 		vscode.window.showInformationMessage('Hello World from mds-tool!');
-	});
-
-	context.subscriptions.push(disposable);
+	}));
+	
+	context.subscriptions.push(vscode.commands.registerCommand('mds-tool.sayHello', function (uri) {
+		// 当从资源管理器中右键执行命令时会把当前选中资源路径uri作为参数传过
+		// 当从编辑器中右键菜单执行时则会将当前打开文件路径URI传过去
+		// 当直接按Ctrl+Shift+P执行命令时，这个参数为空
+		
+		// 每次执行命令时，您在此处放置的代码都将被执行
+		vscode.window.showInformationMessage('大家好!');
+		console.info(uri)
+	}));
+	
 }
 
-// this method is called when your extension is deactivated
-function deactivate() {}
+/**
+ * 停用扩展时将调用此方法
+ */
+function deactivate() {
+	console.log('您的扩展“mds-tool”已被释放！')
+}
 
 module.exports = {
 	activate,

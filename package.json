@@ -1,23 +1,84 @@
 {
 	"name": "mds-tool",
-	"displayName": "mds-tool",
+	"displayName": "mds-tool 工具",
 	"description": "程序员常用工具",
 	"version": "0.0.1",
+	"publisher": "san_fan",
 	"engines": {
 		"vscode": "^1.61.0"
 	},
 	"categories": [
 		"Other"
 	],
+	"icon": "images/icon.png",
 	"activationEvents": [
-		"onCommand:mds-tool.helloWorld"
+		"onCommand:mds-tool.sayHello"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [
 			{
 				"command": "mds-tool.helloWorld",
-				"title": "Hello World"
+				"title": "HelloWorld"
+			},
+			{
+				"command": "mds-tool.sayHello",
+				"title": "HelloWorld2"
+			}
+		],
+		"keybindings":[
+			{
+				"command": "mds-tool.helloWorld",
+				"key": "ctrl+f10",
+				"mac": "cmd+f10",
+				"when": "editorTextFocus"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"when": "editorFocus",
+					"command": "mds-tool.sayHello",
+					"group": "navigation"
+				}
+			],
+			"editor/title": [
+				{
+					"when": "editorFocus",
+					"command": "mds-tool.sayHello",
+					"group": "navigation"
+				}
+			]
+		}
+	},
+	"snippets":[
+		{
+			"language": "javascript",
+			"path": "./snippets/javascript.json"
+		}
+	],
+	"viewsContainers": {
+		"activitybar": [
+			{
+				"id": "beautifulGirl",
+				"title": "美女",
+				"icon": "images/logo.svg"
+			}
+		]
+	},
+	"views": {
+		"beautifulGirl": [
+			{
+				"id": "beautifulGirl1",
+				"name": "国内美女"
+			},
+			{
+				"id": "beautifulGirl2",
+				"name": "国外美女"
+			},
+			{
+				"id": "beautifulGirl3",
+				"name": "人妖"
 			}
 		]
 	},
