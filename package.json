@@ -12,11 +12,25 @@
 	],
 	"icon": "images/icon.png",
 	"activationEvents": [
-		"onCommand:mds-tool.sayHello"
+		"onCommand:mds-tool.showWelcome"
 	],
 	"main": "./extension.js",
 	"contributes": {
+    "configuration":{
+      "title": "MDS-TOOL 开发者工具",
+      "properties": {
+        "vscodePlug.mds-tool.userName":{
+          "type":"string",
+          "default":"mds",
+          "description":"开发者姓名"
+        }
+      }
+    },
 		"commands": [
+      {
+				"command": "mds-tool.showWelcome",
+				"title": "欢迎页"
+			},
 			{
 				"command": "mds-tool.helloWorld",
 				"title": "HelloWorld"
@@ -45,43 +59,44 @@
 			"editor/title": [
 				{
 					"when": "editorFocus",
-					"command": "mds-tool.sayHello",
+					"command": "mds-tool.showWelcome",
 					"group": "navigation"
 				}
 			]
-		}
-	},
-	"snippets":[
-		{
-			"language": "javascript",
-			"path": "./snippets/javascript.json"
-		}
-	],
-	"viewsContainers": {
-		"activitybar": [
+		},
+		"snippets":[
 			{
-				"id": "beautifulGirl",
-				"title": "美女",
-				"icon": "images/logo.svg"
+				"language": "javascript",
+				"path": "./snippets/javascript.json"
 			}
-		]
+		],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "beautifulGirl",
+          "title": "mds-tool 开发者工具",
+          "icon": "images/logo.svg"
+        }
+      ]
+    },
+    "views": {
+      "beautifulGirl": [
+        {
+          "id": "beautifulGirl1",
+          "name": "数据库"
+        },
+        {
+          "id": "beautifulGirl2",
+          "name": "php"
+        },
+        {
+          "id": "beautifulGirl3",
+          "name": "vue"
+        }
+      ]
+    }
 	},
-	"views": {
-		"beautifulGirl": [
-			{
-				"id": "beautifulGirl1",
-				"name": "国内美女"
-			},
-			{
-				"id": "beautifulGirl2",
-				"name": "国外美女"
-			},
-			{
-				"id": "beautifulGirl3",
-				"name": "人妖"
-			}
-		]
-	},
+	
 	"scripts": {
 		"lint": "eslint .",
 		"pretest": "npm run lint",
