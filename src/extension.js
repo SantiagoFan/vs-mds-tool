@@ -1,6 +1,8 @@
 //模块“vscode”包含VS代码扩展API
 //导入模块并使用下面代码中的别名vscode引用它
 const vscode = require('vscode');
+
+const tp = require('./php/thinkphp')
 /**
  * 当您的扩展被激活时，将调用此方法
  * 您的扩展在第一次执行命令时即被激活
@@ -9,8 +11,6 @@ const vscode = require('vscode');
 function activate(context) {
 
 	//当您的扩展被激活时，这行代码将只执行一次
-	console.log('恭喜，您的扩展 "mds-tool" 现在已被激活');
-
 	//该命令已在package.json文件中定义
 	//现在用registerCommand提供命令的实现
 	//commandId参数必须与package.json中的命令字段匹配
@@ -41,7 +41,8 @@ function activate(context) {
 		);
 		panel.webview.html = `<html><body>你好，我是Webview</body></html>`
 	}))
-	
+	tp.registerAllCommand(context)
+	console.log('Congratulations, your extension "mds-tool" is now active!')
 }
 
 /**

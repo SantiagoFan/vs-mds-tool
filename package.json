@@ -12,9 +12,9 @@
 	],
 	"icon": "images/icon.png",
 	"activationEvents": [
-		"onCommand:mds-tool.showWelcome"
+		"*"
 	],
-	"main": "./extension.js",
+	"main": "./src/extension.js",
 	"contributes": {
     "configuration":{
       "title": "MDS-TOOL 开发者工具",
@@ -38,6 +38,10 @@
 			{
 				"command": "mds-tool.sayHello",
 				"title": "HelloWorld2"
+			},
+			{
+				"command": "mds-tool.tp.createModel",
+				"title": "创建 tp Model"
 			}
 		],
 		"keybindings":[
@@ -73,24 +77,24 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "beautifulGirl",
-          "title": "mds-tool 开发者工具",
+          "id": "MDSTOOL",
+          "title": "MDSTOOL",
           "icon": "images/logo.svg"
         }
       ]
     },
     "views": {
-      "beautifulGirl": [
+      "MDSTOOL": [
         {
-          "id": "beautifulGirl1",
+          "id": "mds-tool.database",
           "name": "数据库"
         },
         {
-          "id": "beautifulGirl2",
+          "id": "mds-tool.php",
           "name": "php"
         },
         {
-          "id": "beautifulGirl3",
+          "id": "mds-tool.vue",
           "name": "vue"
         }
       ]

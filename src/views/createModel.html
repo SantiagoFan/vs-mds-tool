@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>创建model</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../lib/element-ui-2.15.6/index.css">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+  </head>
+  <body>
+    <div id="app">
+      <el-input v-model="input" placeholder="请输入内容"></el-input>
+    </div>
+  </body>
+  <script src="../../lib/vue-2.6.14/vue.js"></script>
+  <script src="../../lib/element-ui-2.15.6/index.js"></script>
+  <script lang="javascript">
+    // const vscode = acquireVsCodeApi();
+    new Vue({
+      el: '#app',
+      data(){
+        return {
+          input:'x'
+        }
+      }
+    })
+  </script>
+</html>
