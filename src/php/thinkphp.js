@@ -17,7 +17,7 @@ let commandList = [
             // retainContextWhenHidden: true, // webview被隐藏时保持状态，避免被重置
         }
       );
-      panel.webview.html = tool.getWebViewContent(context,'/views/createModel.html')
+      panel.webview.html = tool.getWebViewContent(context,'/src/views/createModel.html')
       vscode.window.showInformationMessage('createModel from mds-tool!');
     }
   }
